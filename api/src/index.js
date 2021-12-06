@@ -1,13 +1,19 @@
-import initdb from './models/init-models.js'
-import Sequelize from 'sequelize';
-const sequelize = new Sequelize(
-'mysql_17753_nsftcc',
-'nsftcc',
-'nsf@tcc', {
-host: 'my01.winhost.com',
-dialect: 'mysql',
-logging: console.log
-});
+import db from './db.js';
+import express from 'express';
+import cors from 'cors';
+import Sequelize from 'sequelize'
 
-const db = initdb(sequelize);
-export default db
+const {Op, col} = Sequelize;
+
+
+
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+
+app.listen(process.env.PORT,
+    x =>  console.log(`Oxe bglh ta lá na ${process.env.PORT}`))
+
+
