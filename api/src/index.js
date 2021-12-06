@@ -18,18 +18,22 @@ app.get('/nome', async (req, resp) => {
 
 }) 
 
-
 app.post('/nome', async (req, resp) => {
-        let { nome} = req.body;
 
-        let consulta = await db.tb_lista_negra.findOne({where: {id_nome: nome}});
+    let { nome} = req.body;
 
-                let i = await db.tb_lista_negra.create({ 
-                    id_nome: nome, 
-                })
-                resp.send(i)
+    let consulta = await db.tb_lista_negra.findOne({where: {id_nome: nome}});
 
-            }
+    if(consulta != null) {
+        resp.send({erro: '😀 Pessoa já cadastrado!'})
+    } {{
+            let i = await db.tb_lista_negra.create({ 
+               id_nome: nome
+            })
+            resp.send(i)
+        }
+    }
+}
 )
 //
 
