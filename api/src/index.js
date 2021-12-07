@@ -21,7 +21,7 @@ app.post('/nome', async (req, resp) => {
     try {
         let {nome} = req.body;
 
-        let i = await db.tb_lista_negra.update({
+        let i = await db.tb_lista_negra.create({
             id_nome: nome,
         })
         resp.sendStatus(i);
@@ -35,6 +35,6 @@ app.post('/nome', async (req, resp) => {
 
 
 app.listen(process.env.PORT,
-    x =>  console.log(`foi na ${process.env.PORT}`))
+    x =>  console.log(`oxi bglh ta la na 3030 ${process.env.PORT}`))
 
 
