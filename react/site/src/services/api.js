@@ -11,8 +11,8 @@ export default class Api {
         return r.data;
     }
 
-    async inserir( nome, categoria, precoDe, precoPor, avaliacao, descProduto, estoque, imagem, data ) {
-        let r = await api.post('/produto', {nome, categoria, precoDe, precoPor, avaliacao, descProduto, estoque, imagem, data})
+    async inserir( nome) {
+        let r = await api.post('/nome', {nome})
         return r.data
     }
 
