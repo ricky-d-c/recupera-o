@@ -19,23 +19,21 @@ app.get('/nome', async (req, resp) => {
 }) 
 
 app.post('/nome', async (req, resp) => {
+    try {
+        let {nome} = req.body;
 
-    let { nome} = req.body;
+        let i = await db.tb_lista_negra.update({
+            id_nome: nome,
+        })
+        resp.sendStatus(i);
 
-    let consulta = await db.tb_lista_negra.findOne({where: {id_nome: nome}});
 
-    if(consulta != null) {
-        resp.send({erro: '😀 Pessoa já cadastrado!'})
-    } {{
-            let i = await db.tb_lista_negra.create({ 
-               id_nome: nome
-            })
-            resp.send(i)
-        }
+    } catch (e) {
+        resp.send({ erro: 'Deu erro no POST!' })
     }
-}
-)
+})
 //
+
 
 app.listen(process.env.PORT,
     x =>  console.log(`Oxi bglh ta lá na ${process.env.PORT}`))
