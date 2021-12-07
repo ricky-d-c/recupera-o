@@ -15,7 +15,6 @@ const api = new Api()
 export default function Index() {
     
     const [nome, setNome] = useState([])
-
     const [usuario, setUsuario] = useState('')
 
     
@@ -31,13 +30,9 @@ export default function Index() {
         listar()
     }, [])
 
-    async function inserir() {
-        let r = await api.Inserir(nome);
-        setNome(r);
-        LimparCampos();
-        listar();
-      }
-
+    async function inserirr() {
+        const r = await api.inserir(usuario.id_nome);       
+    }
 
   function LimparCampos() {
     setNome('');
@@ -51,7 +46,7 @@ export default function Index() {
                      <div className="inserir">
                          <div className="nome"><b>Nome:</b></div>
                          <div className="eita"><input type="text" value={usuario} onChange={e => setUsuario(e.target.value)}></input></div>
-                        <div className="bt" ><button onClick={inserir}>Registrar Nome</button></div>      </div>      
+                        <div className="bt" ><button onClick={inserirr}>Registrar Nome</button></div>      </div>      
 
 
 

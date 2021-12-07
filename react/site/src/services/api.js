@@ -12,7 +12,7 @@ export default class Api {
     }
 
     async inserir( nome) {
-        let r = await api.post('/nome', {nome})
+        let r = await api.post('/inserir', {nome})
         return r.data
     }
 

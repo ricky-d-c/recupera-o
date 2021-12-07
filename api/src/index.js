@@ -17,20 +17,20 @@ app.get('/nome', async (req, resp) => {
 
 }) 
 
-app.post('/nome', async (req, resp) => {
-    try {
-        let {nome} = req.body;
+app.post('/inserir', async(req,resp) =>{
+    try{
+       let nome = req.body.id_nome;
+      
+      let inserir = {
+        id_nome:nome,
+      }
+       let inserting = await db.tb_lista_negra.create(inserir);
+       resp.send(inserting)
+      }catch(e){
+        resp.send(e.toString())
+       }
 
-        let i = await db.tb_lista_negra.create({
-            id_nome: nome,
-        })
-        resp.sendStatus(i);
-
-
-    } catch (e) {
-        resp.send({ erro: 'Deu erro no POST!' })
-    }
-})
+  })
 //
 
 
