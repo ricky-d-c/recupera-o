@@ -21,11 +21,17 @@ app.post('/inserir', async(req,resp) =>{
     try{
        let nome = req.body.nome;
 
+
       let inserir = {
         id_nome:nome,
       }
 
 
+
+    
+      let inserir = {
+        id_nome:nome,
+      }
        let inserting = await db.tb_lista_negra.create(inserir);
        resp.send(inserting)
       }catch(e){
@@ -37,6 +43,6 @@ app.post('/inserir', async(req,resp) =>{
 
 
 app.listen(process.env.PORT,
-    x =>  console.log(`foi na ${process.env.PORT}`))
+    x =>  console.log(`oxi bglh ta la na 3030 ${process.env.PORT}`))
 
 

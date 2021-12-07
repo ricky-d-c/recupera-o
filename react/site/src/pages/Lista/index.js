@@ -6,7 +6,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 
 
 import { Container, Conteudo } from './styled'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect} from 'react'
 
 import Api from '../../services/api'
 const api = new Api()
@@ -15,8 +15,6 @@ const api = new Api()
 export default function Index() {
     
     const [nome, setNome] = useState([])
-    let loading               = useRef(null);
-
     const [usuario, setUsuario] = useState('')
 
     
@@ -37,10 +35,13 @@ export default function Index() {
         return r.data
     }
 
+    async function inserirr() {
+        const r = await api.inserir(usuario.id_nome)       
+    }
 
-  function LimparCampos() {
+ /* function LimparCampos() {
     setNome('');
-  }
+  }*/
 
    
     return (
@@ -50,7 +51,11 @@ export default function Index() {
                      <div className="inserir">
                          <div className="nome"><b>Nome:</b></div>
                          <div className="eita"><input type="text" value={usuario} onChange={e => setUsuario(e.target.value)}></input></div>
+
                         <div className="bt"onClick={inserirProduto} ><button >Registrar Nome</button></div>      </div>      
+
+                        <div className="bt" ><button onClick={inserirr}>Registrar Nome</button></div>          
+
 
 
 
@@ -67,10 +72,10 @@ export default function Index() {
                             
                                     <tbody>
                                         {nome.map((item, i) =>    
-                                            <tr className={i % 2 == 0 ? "linha-alternada" : ""}>              
+                                            <tr className={i % 2 === 0 ? "linha-alternada" : ""}>              
                                             <th class="coluna-acao"> </th>
                                                 <td> {item.id}</td>
-                                                <td title={item.id_nome}> {item.id_nome != null && item.id_nome.length >= 25 ? item.id_nome.substr(0, 25) + "..." : item.id_nome} </td>                                                
+                                                <td>{item.id_nome} </td>                                                
                                             <th class="coluna-acao"> </th>
                                                </tr>
                                         )}

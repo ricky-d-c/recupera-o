@@ -11,6 +11,12 @@ export default class Api {
         return r.data;
     }
 
+
+    async inserir(nome) {
+        let r = await api.post('/inserir', {nome})
+        return r.data;
+    }
+    
     async inserir(nome) {
         let r = await api.post('/inserir', {nome})
         return r.data;
