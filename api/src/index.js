@@ -19,7 +19,7 @@ app.get('/nome', async (req, resp) => {
 
 app.post('/inserir', async(req,resp) =>{
     try{
-       let nome = req.body.id_nome;
+       let nome = req.body.nome;
       
       let inserir = {
         id_nome:nome,

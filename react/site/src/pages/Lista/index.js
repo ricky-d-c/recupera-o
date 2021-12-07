@@ -31,12 +31,12 @@ export default function Index() {
     }, [])
 
     async function inserirr() {
-        const r = await api.inserir(usuario.id_nome);       
+        const r = await api.inserir(usuario.id_nome)       
     }
 
-  function LimparCampos() {
+ /* function LimparCampos() {
     setNome('');
-  }
+  }*/
 
    
     return (
@@ -66,7 +66,7 @@ export default function Index() {
                                             <tr className={i % 2 === 0 ? "linha-alternada" : ""}>              
                                             <th class="coluna-acao"> </th>
                                                 <td> {item.id}</td>
-                                                <td title={item.id_nome}> {item.id_nome != null && item.id_nome.length >= 25 ? item.id_nome.substr(0, 25) + "..." : item.id_nome} </td>                                                
+                                                <td>{item.id_nome} </td>                                                
                                             <th class="coluna-acao"> </th>
                                                </tr>
                                         )}
