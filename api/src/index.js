@@ -10,7 +10,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//GET funciona
 app.get('/nome', async (req, resp) => {
  
         let l = await db.tb_lista_negra.findAll({order: [['id', 'desc']]});
@@ -35,9 +34,9 @@ app.post('/nome', async (req, resp) => {
     }
 }
 )
-//
+
 
 app.listen(process.env.PORT,
-    x =>  console.log(`Oxi bglh ta lá na ${process.env.PORT}`))
+    x =>  console.log(`foi na ${process.env.PORT}`))
 
 

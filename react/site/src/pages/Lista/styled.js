@@ -3,40 +3,12 @@ import styled from 'styled-components'
 const Container = styled.div`
     
 
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    margin-left: 1em;
-
-
-    .inserir{
-        display: flex;
-        flex-direction: row;
-        margin-top: 1.5em;
-        margin-bottom: 1em;
-    }
-
-    .eita{
-        margin-left: 9px;
-        margin-right: 9px;
-    }
-
-    input {
-        width: 209px;
-        height: 30px;
-
-        background: #FFFFFF;
-        border: 1px solid #A8A8A8;
-        box-sizing: border-box;
-        border-radius: 5px;
-        padding-left: .5em;
-
-    }
+    
 
 
 
     thead {
-        background-color: #85d6b3;
+        background-color: black;
     }
 
     table {
